@@ -1,0 +1,10 @@
+{
+  "description": "Showcase premium hockey and pickleball equipment with a modern single-page design, enhancing brand visibility and driving international sales.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

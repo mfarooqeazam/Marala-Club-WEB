@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --color-marala-navy: #0B1F3A;
+  --color-marala-teal: #00A6A6;
+  --color-marala-orange: #F97316;
+  --color-marala-lime: #A3E635;
+  --color-marala-white: #F7FAFC;
+  --color-marala-black: #111827;
+  --color-marala-gray: #64748B;
+
+  --font-sans: 'Inter', sans-serif;
+  --font-display: 'Oswald', sans-serif;
+
+  --background-image-hero: linear-gradient(to right, rgba(11, 31, 58, 0.95), rgba(11, 31, 58, 0.7));
+}
+
+@layer base {
+  body {
+    @apply bg-marala-white text-marala-black font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight text-marala-navy;
+  }
+}
