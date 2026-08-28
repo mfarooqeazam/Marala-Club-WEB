@@ -100,14 +100,14 @@ function ProductPage({ onBack, onConsult }: { onBack: () => void; onConsult: () 
         </div>
       </header>
 
-      <main className="mx-auto max-w-7xl px-6 pb-24 pt-36 lg:px-12 lg:pt-48">
-        <div className="mb-24 grid gap-12 lg:grid-cols-[1fr_320px] lg:items-end">
+      <main className="mx-auto max-w-7xl px-6 pb-20 pt-28 sm:pt-36 lg:px-12 lg:pt-48">
+        <div className="mb-16 sm:mb-24 grid gap-10 lg:gap-12 lg:grid-cols-[1fr_320px] lg:items-end">
           <div>
             <button type="button" onClick={onBack} className="mb-10 inline-flex items-center gap-3 font-display text-xs font-bold uppercase tracking-[0.18em] text-marala-gray transition-colors hover:text-marala-orange">
               <ChevronRight className="h-4 w-4 rotate-180" /> Back to home
             </button>
             <span className="mb-8 block border-l-2 border-marala-orange pl-4 font-display text-xs font-bold uppercase tracking-[0.2em] text-marala-orange">Marala Club / Product index</span>
-            <h1 className="max-w-5xl text-7xl font-display font-bold uppercase leading-[0.82] tracking-tighter text-marala-navy sm:text-8xl lg:text-[10rem]">Equipment<br /><span className="text-marala-teal">without limits.</span></h1>
+            <h1 className="max-w-5xl text-[2.75rem] font-display font-bold uppercase leading-[0.85] tracking-tighter text-marala-navy sm:text-7xl md:text-8xl lg:text-[10rem] lg:leading-[0.82]">Equipment<br /><span className="text-marala-teal">without limits.</span></h1>
           </div>
           <p className="max-w-sm text-lg font-light leading-relaxed text-marala-gray">A working catalogue of hockey, pickleball, protection, and carry systems. Select a category to explore the range.</p>
         </div>
@@ -293,7 +293,7 @@ export default function App() {
               initial={{ opacity: 0, y: 24, scale: 0.96 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={{ opacity: 0, y: 16, scale: 0.98 }}
-              className="relative w-full max-w-xl rounded-[2rem] bg-marala-white p-8 shadow-2xl sm:p-12"
+              className="relative max-h-[88svh] w-full max-w-xl overflow-y-auto rounded-[2rem] bg-marala-white p-6 shadow-2xl sm:p-12"
             >
               <button
                 type="button"
@@ -343,11 +343,11 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-marala-navy rounded-full flex items-center justify-center shadow-lg">
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-marala-navy rounded-full flex items-center justify-center shadow-lg">
                 <span className="text-marala-white font-display font-bold text-2xl leading-none">M</span>
               </div>
               <span className={cn(
-                "font-display font-bold text-2xl uppercase tracking-widest transition-colors duration-300",
+                "font-display font-bold text-lg sm:text-2xl uppercase tracking-widest transition-colors duration-300",
                 isScrolled ? "text-marala-navy" : "text-marala-white"
               )}>
                 Marala Club
@@ -398,7 +398,7 @@ export default function App() {
           {isMobileMenuOpen && (
             <motion.div 
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: '100vh' }}
+              animate={{ opacity: 1, height: '100dvh' }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-marala-navy text-marala-white absolute w-full top-0 left-0 flex flex-col items-center justify-center space-y-8 z-40"
             >
@@ -424,7 +424,7 @@ export default function App() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section data-hero className="relative min-h-[95vh] flex items-center justify-center pt-20 pb-10 overflow-hidden bg-marala-navy rounded-b-[3rem] lg:rounded-b-[4rem]">
+      <section data-hero className="relative min-h-[88svh] sm:min-h-[95vh] flex items-center justify-center pt-24 sm:pt-20 pb-10 overflow-hidden bg-marala-navy rounded-b-[3rem] lg:rounded-b-[4rem]">
         <motion.div 
           initial={{ scale: 1.1 }}
           animate={{ scale: 1 }}
@@ -440,7 +440,7 @@ export default function App() {
            <div className="absolute inset-0 bg-gradient-to-b from-marala-navy/40 via-marala-navy/70 to-marala-navy/90 mix-blend-multiply"></div>
         </motion.div>
         
-        <div data-hero-content className="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-10 mt-10">
+        <div data-hero-content className="w-full max-w-7xl mx-auto px-6 lg:px-12 relative z-10 mt-6 sm:mt-10">
           <motion.div 
             variants={staggerContainer}
             initial="hidden"
@@ -452,7 +452,7 @@ export default function App() {
               whileHover={{ y: -5, scale: 1.025 }}
               whileTap={{ scale: 0.98 }}
               type="button"
-              className="group mb-10 inline-flex max-w-3xl items-start px-2 py-2 text-left transition-transform duration-500 hover:-translate-y-1"
+              className="group mb-6 sm:mb-10 inline-flex max-w-3xl items-start px-2 py-2 text-left transition-transform duration-500 hover:-translate-y-1"
               aria-label="Marala Club motto"
             >
               <span className="font-display text-lg font-semibold italic leading-tight tracking-[0.04em] text-white sm:text-2xl">
@@ -462,7 +462,7 @@ export default function App() {
             
             <motion.h1 
               variants={fadeInUp}
-              className="text-6xl sm:text-7xl lg:text-8xl xl:text-[9rem] font-display font-bold text-marala-white leading-[0.85] mb-8 uppercase tracking-tighter"
+              className="text-[2.6rem] sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-display font-bold text-marala-white leading-[0.85] mb-6 sm:mb-8 uppercase tracking-tighter"
             >
               Precision <br className="hidden md:block"/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-marala-teal via-white to-marala-teal bg-[length:200%_auto] animate-gradient">Engineered</span>
@@ -470,33 +470,33 @@ export default function App() {
             
             <motion.p 
               variants={fadeInUp}
-              className="text-xl md:text-2xl text-marala-white/80 mb-12 max-w-2xl font-light leading-relaxed"
+              className="text-base sm:text-xl md:text-2xl text-marala-white/80 mb-8 sm:mb-12 max-w-2xl font-light leading-relaxed"
             >
               We manufacture professional-grade Field Hockey and Pickleball gear for elite international brands.
             </motion.p>
             
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6">
-              <PillButton variant="primary" onClick={() => setIsConsultationOpen(true)}>Become a Partner</PillButton>
-              <PillButton variant="outline">View Capabilities</PillButton>
+            <motion.div variants={fadeInUp} className="flex w-full flex-col items-stretch gap-4 sm:w-auto sm:flex-row sm:items-center sm:gap-6">
+              <PillButton variant="primary" className="w-full sm:w-auto" onClick={() => setIsConsultationOpen(true)}>Become a Partner</PillButton>
+              <PillButton variant="outline" className="w-full sm:w-auto">View Capabilities</PillButton>
             </motion.div>
           </motion.div>
         </div>
       </section>
 
       {/* Trust & Expertise */}
-      <section id="expertise" className="relative py-32 lg:py-48 bg-gradient-to-b from-marala-white via-[#EAF0F6] to-marala-white">
+      <section id="expertise" className="relative py-20 sm:py-28 lg:py-48 bg-gradient-to-b from-marala-white via-[#EAF0F6] to-marala-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="mb-24 flex flex-col md:flex-row gap-10 justify-between items-end"
+            className="mb-14 sm:mb-20 lg:mb-24 flex flex-col md:flex-row gap-8 md:gap-10 justify-between items-start md:items-end"
           >
-            <h2 className="text-5xl md:text-7xl font-display font-bold text-marala-navy uppercase leading-[0.9] tracking-tighter md:w-1/2">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-marala-navy uppercase leading-[0.9] tracking-tighter md:w-1/2">
               The Marala <br/><span className="text-marala-teal">Standard.</span>
             </h2>
-            <p className="text-xl text-marala-gray font-light leading-relaxed md:w-1/3">
+            <p className="text-lg sm:text-xl text-marala-gray font-light leading-relaxed md:w-1/3">
               Decades of craftsmanship merged with cutting-edge manufacturing technology. We set the benchmark for global sports equipment export.
             </p>
           </motion.div>
@@ -574,21 +574,21 @@ export default function App() {
                   )}
                 />
 
-                <div className="relative p-10 lg:p-12">
+                <div className="relative p-8 sm:p-10 lg:p-12">
                   <div className={cn(
-                    "mb-10 flex h-16 w-16 items-center justify-center rounded-full border",
+                    "mb-8 sm:mb-10 flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full border",
                     "transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
                     feature.ring, feature.ringHover
                   )}>
                     {feature.icon}
                   </div>
                   <h3 className={cn(
-                    "mb-4 font-display text-3xl font-bold uppercase tracking-wide text-marala-navy",
+                    "mb-4 font-display text-2xl sm:text-3xl font-bold uppercase tracking-wide text-marala-navy",
                     "transition-colors duration-500", feature.label
                   )}>
                     {feature.title}
                   </h3>
-                  <p className="text-lg font-light leading-relaxed text-marala-gray transition-colors duration-500 group-hover:text-marala-navy/75">
+                  <p className="text-base sm:text-lg font-light leading-relaxed text-marala-gray transition-colors duration-500 group-hover:text-marala-navy/75">
                     {feature.desc}
                   </p>
                 </div>
@@ -613,10 +613,10 @@ export default function App() {
             variants={fadeInUp}
             className="mx-auto mt-12 mb-16 max-w-3xl text-center lg:mt-20"
           >
-            <h2 className="text-6xl md:text-8xl font-display font-bold uppercase leading-none tracking-tighter mb-6">
+            <h2 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-display font-bold uppercase leading-none tracking-tighter mb-5 sm:mb-6">
               Elite <span className="text-marala-teal text-transparent bg-clip-text bg-gradient-to-r from-marala-teal to-marala-navy">Equipment</span>
             </h2>
-            <p className="text-xl text-marala-gray font-light">
+            <p className="text-lg sm:text-xl text-marala-gray font-light">
               Engineered for elite performance and handling. Available for private label manufacturing and bulk export.
             </p>
           </motion.div>
@@ -628,7 +628,7 @@ export default function App() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={scaleIn}
-              className="group relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-marala-navy text-white min-h-[600px] lg:min-h-[700px] flex flex-col lg:flex-row items-center"
+              className="group relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-marala-navy text-white min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex flex-col lg:flex-row items-center"
             >
               <div className="absolute inset-0 w-full lg:w-1/2 h-full z-0 lg:order-last lg:left-auto lg:right-0">
                 <motion.img 
@@ -641,13 +641,13 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-marala-navy via-marala-navy/80 lg:via-transparent to-transparent"></div>
               </div>
               
-              <div className="relative z-10 p-10 lg:p-20 w-full lg:w-1/2 h-full flex flex-col justify-center">
-                <div className="inline-flex items-center gap-3 border-l-2 border-marala-lime pl-4 text-marala-lime mb-8 w-max">
+              <div className="relative z-10 p-7 sm:p-10 lg:p-20 w-full lg:w-1/2 h-full flex flex-col justify-center">
+                <div className="inline-flex items-center gap-3 border-l-2 border-marala-lime pl-4 text-marala-lime mb-6 sm:mb-8 w-max">
                   <HockeyStickIcon className="w-4 h-4" /> 
                   <span className="font-display font-bold tracking-[0.2em] uppercase text-xs">Pro Series</span>
                 </div>
-                <h3 className="text-5xl lg:text-7xl font-display font-bold uppercase mb-6 tracking-tight leading-[0.9]">Field <br/>Hockey</h3>
-                <p className="text-marala-white/70 text-lg lg:text-xl mb-10 max-w-md font-light leading-relaxed">
+                <h3 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold uppercase mb-5 sm:mb-6 tracking-tight leading-[0.9]">Field <br/>Hockey</h3>
+                <p className="text-marala-white/70 text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 max-w-md font-light leading-relaxed">
                   Carbon fiber composites, fiberglass blends, and premium wooden sticks engineered for maximum power transfer and control.
                 </p>
                 <div>
@@ -662,7 +662,7 @@ export default function App() {
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
               variants={scaleIn}
-              className="group relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-[#0A1118] text-white min-h-[600px] lg:min-h-[700px] flex flex-col lg:flex-row items-center"
+              className="group relative rounded-[2.5rem] lg:rounded-[3rem] overflow-hidden bg-[#0A1118] text-white min-h-[500px] sm:min-h-[600px] lg:min-h-[700px] flex flex-col lg:flex-row items-center"
             >
               <div className="absolute inset-0 w-full lg:w-1/2 h-full z-0">
                 <motion.img 
@@ -675,13 +675,13 @@ export default function App() {
                 <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-l from-[#0A1118] via-[#0A1118]/80 lg:via-transparent to-transparent"></div>
               </div>
               
-              <div className="relative z-10 p-10 lg:p-20 w-full lg:w-1/2 lg:ml-auto h-full flex flex-col justify-center">
-                <div className="inline-flex items-center gap-3 border-l-2 border-marala-teal pl-4 text-marala-teal mb-8 w-max">
+              <div className="relative z-10 p-7 sm:p-10 lg:p-20 w-full lg:w-1/2 lg:ml-auto h-full flex flex-col justify-center">
+                <div className="inline-flex items-center gap-3 border-l-2 border-marala-teal pl-4 text-marala-teal mb-6 sm:mb-8 w-max">
                   <PaddleIcon className="w-4 h-4" /> 
                   <span className="font-display font-bold tracking-[0.2em] uppercase text-xs">High-Performance</span>
                 </div>
-                <h3 className="text-5xl lg:text-7xl font-display font-bold uppercase mb-6 tracking-tight leading-[0.9]">Pickleball <br/>Paddles</h3>
-                <p className="text-marala-white/70 text-lg lg:text-xl mb-10 max-w-md font-light leading-relaxed">
+                <h3 className="text-4xl sm:text-5xl lg:text-7xl font-display font-bold uppercase mb-5 sm:mb-6 tracking-tight leading-[0.9]">Pickleball <br/>Paddles</h3>
+                <p className="text-marala-white/70 text-base sm:text-lg lg:text-xl mb-8 sm:mb-10 max-w-md font-light leading-relaxed">
                   Carbon friction surfaces and polymer honeycomb cores designed for massive spin and expanded sweet spots.
                 </p>
                 <div>
@@ -700,7 +700,7 @@ export default function App() {
             <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <span className="font-display text-xs font-bold uppercase tracking-[0.2em] text-marala-orange">Technical index</span>
-                <h3 className="mt-3 text-3xl font-display font-bold uppercase text-marala-navy">Compare the build.</h3>
+                <h3 className="mt-3 text-2xl sm:text-3xl font-display font-bold uppercase text-marala-navy">Compare the build.</h3>
               </div>
               <div className="flex rounded-full border border-marala-navy/10 p-1" role="tablist" aria-label="Product specifications">
                 {(['hockey', 'pickleball'] as const).map((product) => (
@@ -736,16 +736,16 @@ export default function App() {
       </section>
 
       {/* Manufacturing */}
-      <section id="manufacturing" className="py-32 lg:py-48 bg-marala-white overflow-hidden relative">
+      <section id="manufacturing" className="py-20 sm:py-28 lg:py-48 bg-marala-white overflow-hidden relative">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             
             <motion.div 
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="relative h-[500px] lg:h-[700px] w-full rounded-[3rem] overflow-hidden order-last lg:order-first"
+              className="relative h-[320px] sm:h-[440px] lg:h-[700px] w-full rounded-[2rem] sm:rounded-[3rem] overflow-hidden order-last lg:order-first"
             >
               <img 
                 src="https://images.unsplash.com/photo-1496247749665-49cf5b1022e9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwzfHxtYW51ZmFjdHVyaW5nJTIwZmFjaWxpdHl8ZW58MXx8fHwxNzg3Njc2NjkzfDA&ixlib=rb-4.1.0&q=80&w=1080" 
@@ -761,33 +761,33 @@ export default function App() {
               viewport={{ once: true }}
               variants={staggerContainer}
             >
-              <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 border-l-2 border-marala-orange pl-4 mb-10">
+              <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 border-l-2 border-marala-orange pl-4 mb-8 sm:mb-10">
                 <GlobeMarkIcon className="w-4 h-4 text-marala-orange" />
                 <span className="text-marala-navy font-display font-bold text-xs tracking-[0.2em] uppercase">
                   Global Reach
                 </span>
               </motion.div>
               
-              <motion.h2 variants={fadeInUp} className="text-5xl md:text-7xl font-display font-bold text-marala-navy uppercase tracking-tighter mb-8 leading-[0.9]">
+              <motion.h2 variants={fadeInUp} className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-marala-navy uppercase tracking-tighter mb-6 sm:mb-8 leading-[0.9]">
                 Crafted in <br/>Sialkot.
               </motion.h2>
               
-              <motion.p variants={fadeInUp} className="text-xl text-marala-gray mb-12 font-light leading-relaxed">
+              <motion.p variants={fadeInUp} className="text-lg sm:text-xl text-marala-gray mb-8 sm:mb-12 font-light leading-relaxed">
                 Operating out of Pakistan—the world's premier hub for sporting goods manufacturing—Marala Club combines generations of craftsmanship with modern automated technology.
               </motion.p>
               
-              <ul className="space-y-6">
+              <ul className="space-y-4 sm:space-y-6">
                 {[
                   { title: "OEM & ODM Services", desc: "Full custom manufacturing for international brands." },
                   { title: "Stringent Quality Control", desc: "Multi-stage testing ensuring 0% defect rates for export." },
                   { title: "Scalable Capacity", desc: "Equipped to handle high-volume orders." }
                 ].map((item, i) => (
-                  <motion.li variants={fadeInUp} key={i} className="flex items-center gap-6 group p-4 rounded-2xl hover:bg-marala-gray/5 transition-colors">
+                  <motion.li variants={fadeInUp} key={i} className="flex items-center gap-4 sm:gap-6 group p-3 sm:p-4 rounded-2xl hover:bg-marala-gray/5 transition-colors">
                     <div className="w-12 h-12 rounded-full bg-marala-navy text-white flex items-center justify-center flex-shrink-0 group-hover:bg-marala-teal transition-colors">
                       <ChevronRight className="w-5 h-5" />
                     </div>
                     <div>
-                      <h4 className="text-xl font-display font-bold text-marala-navy uppercase tracking-wide">{item.title}</h4>
+                      <h4 className="text-lg sm:text-xl font-display font-bold text-marala-navy uppercase tracking-wide">{item.title}</h4>
                       <p className="text-marala-gray font-light text-sm mt-1">{item.desc}</p>
                     </div>
                   </motion.li>
@@ -806,7 +806,7 @@ export default function App() {
            whileInView={{ y: 0, opacity: 1 }}
            viewport={{ once: true }}
            transition={{ duration: 1 }}
-           className="py-32 lg:py-48 bg-marala-orange relative overflow-hidden rounded-[3rem] lg:rounded-[4rem]"
+           className="py-20 sm:py-28 lg:py-48 bg-marala-orange relative overflow-hidden rounded-[2rem] sm:rounded-[3rem] lg:rounded-[4rem]"
          >
             <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-white/10 blur-3xl rounded-full translate-x-1/3 -translate-y-1/2 pointer-events-none"></div>
             
@@ -815,11 +815,11 @@ export default function App() {
                 initial={{ scale: 0.9, opacity: 0 }}
                 whileInView={{ scale: 1, opacity: 1 }}
                 transition={{ duration: 0.8 }}
-                className="text-6xl sm:text-7xl lg:text-9xl font-display font-bold text-white uppercase leading-[0.85] tracking-tighter mb-10"
+                className="text-4xl sm:text-6xl lg:text-9xl font-display font-bold text-white uppercase leading-[0.85] tracking-tighter mb-8 sm:mb-10"
               >
                 Elevate <br/>Your Brand.
               </motion.h2>
-              <p className="text-xl lg:text-2xl text-white/90 mb-14 font-light max-w-2xl leading-relaxed">
+              <p className="text-base sm:text-xl lg:text-2xl text-white/90 mb-10 sm:mb-14 font-light max-w-2xl leading-relaxed">
                 Partner with Marala Club for premium sporting goods manufacturing. Request a custom quote or sample kit today.
               </p>
               

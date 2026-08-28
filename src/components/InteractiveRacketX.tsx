@@ -573,8 +573,7 @@ export default function InteractiveRacketX() {
       ref={stageRef}
       onViewportEnter={() => setRevealed(true)}
       viewport={{ once: true, margin: "-100px" }}
-      className="relative w-full overflow-hidden bg-marala-white"
-      style={{ minHeight: "min(100vh, 900px)" }}
+      className="relative min-h-[62svh] w-full overflow-hidden bg-marala-white sm:min-h-[76vh] lg:min-h-[min(100vh,900px)]"
     >
       {/* ---------- backdrop, keyed to the section's own white ---------- */}
       <div className="absolute inset-0 bg-gradient-to-b from-white via-marala-white to-[#EDF2F7]" />
