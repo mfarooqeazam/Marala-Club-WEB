@@ -2,20 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { 
-  ArrowRight, 
-  Globe2, 
-  ShieldCheck, 
-  Factory, 
-  Menu, 
-  X,
-  Target,
-  Award,
-  ChevronRight
-} from 'lucide-react';
+import { ArrowRight, Menu, X, ChevronRight } from 'lucide-react';
 import { clsx, type ClassValue } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import InteractiveRacketX from '@/components/InteractiveRacketX';
+import { ContactInfo, FloatingWhatsApp } from '@/components/SocialContact';
+import {
+  ExportIcon,
+  GlobeMarkIcon,
+  HockeyStickIcon,
+  HoneycombIcon,
+  PaddleIcon,
+  PressIcon,
+} from '@/components/MaralaIcons';
 
 function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -153,6 +152,8 @@ function ProductPage({ onBack, onConsult }: { onBack: () => void; onConsult: () 
           </button>
         </div>
       </main>
+
+      <FloatingWhatsApp />
     </div>
   );
 }
@@ -483,7 +484,7 @@ export default function App() {
       </section>
 
       {/* Trust & Expertise */}
-      <section id="expertise" className="py-32 lg:py-48 bg-marala-white relative">
+      <section id="expertise" className="relative py-32 lg:py-48 bg-gradient-to-b from-marala-white via-[#EAF0F6] to-marala-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div 
             initial="hidden"
@@ -500,37 +501,44 @@ export default function App() {
             </p>
           </motion.div>
           
-          <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
+          <div className="grid md:grid-cols-3 gap-8 lg:gap-10">
             {[
               {
-                icon: <Factory className="w-8 h-8" />,
+                icon: <PressIcon className="w-8 h-8" />,
                 title: "Vertical Mfg",
                 desc: "End-to-end production control in our state-of-the-art facility ensures uncompromising quality.",
-                color: "text-marala-navy",
-                bg: "bg-marala-white",
-                border: "border-marala-navy/10"
+                bar: "bg-marala-teal",
+                wash: "from-marala-teal/[0.10]",
+                ring: "border-marala-teal/30 bg-marala-teal/[0.07] text-marala-teal",
+                ringHover: "group-hover:border-marala-teal group-hover:bg-marala-teal group-hover:text-white",
+                edge: "hover:border-marala-teal/40 hover:shadow-marala-teal/20",
+                label: "group-hover:text-marala-teal"
               },
               {
-                icon: <ShieldCheck className="w-8 h-8" />,
+                icon: <ExportIcon className="w-8 h-8" />,
                 title: "Export Ready",
                 desc: "Meeting and exceeding international sporting goods standards for markets globally.",
-                color: "text-marala-teal",
-                bg: "bg-marala-navy",
-                text: "text-marala-white",
-                descColor: "text-marala-white/70",
-                border: "border-transparent"
+                bar: "bg-marala-orange",
+                wash: "from-marala-orange/[0.10]",
+                ring: "border-marala-orange/30 bg-marala-orange/[0.07] text-marala-orange",
+                ringHover: "group-hover:border-marala-orange group-hover:bg-marala-orange group-hover:text-white",
+                edge: "hover:border-marala-orange/40 hover:shadow-marala-orange/20",
+                label: "group-hover:text-marala-orange"
               },
               {
-                icon: <Award className="w-8 h-8" />,
+                icon: <HoneycombIcon className="w-8 h-8" />,
                 title: "Innovation First",
                 desc: "Advanced composite materials, ergonomic designs, and continuous R&D.",
-                color: "text-marala-lime",
-                bg: "bg-marala-white",
-                border: "border-marala-navy/10"
+                bar: "bg-marala-lime",
+                wash: "from-marala-lime/[0.16]",
+                ring: "border-lime-500/40 bg-lime-500/[0.08] text-lime-600",
+                ringHover: "group-hover:border-marala-lime group-hover:bg-marala-lime group-hover:text-marala-navy",
+                edge: "hover:border-lime-500/50 hover:shadow-lime-500/20",
+                label: "group-hover:text-lime-600"
               }
             ].map((feature, i) => (
-              <motion.div 
-                key={i}
+              <motion.div
+                key={feature.title}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: "-50px" }}
@@ -538,18 +546,52 @@ export default function App() {
                   hidden: { opacity: 0, y: 50 },
                   visible: { opacity: 1, y: 0, transition: { delay: i * 0.15, duration: 0.8, ease: [0.16, 1, 0.3, 1] as const } }
                 }}
+                whileHover={{ y: -10 }}
+                transition={{ type: "spring", stiffness: 240, damping: 20 }}
                 className={cn(
-                  "group p-10 lg:p-12 rounded-[2.5rem] border transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-marala-navy/5",
-                  feature.bg, feature.border
+                  "group relative overflow-hidden rounded-[2.5rem] border border-marala-navy/[0.07] bg-white",
+                  "shadow-[0_2px_12px_-6px_rgba(11,31,58,0.14)] transition-[border-color,box-shadow] duration-500",
+                  "hover:shadow-2xl",
+                  feature.edge
                 )}
               >
-                <div className={cn("w-16 h-16 rounded-full flex items-center justify-center mb-10 transition-transform duration-500 group-hover:scale-110 border border-current", feature.color)}>
-                  {feature.icon}
+                {/* accent wash fades in on hover */}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "pointer-events-none absolute inset-0 bg-gradient-to-br via-transparent to-transparent",
+                    "opacity-0 transition-opacity duration-500 group-hover:opacity-100",
+                    feature.wash
+                  )}
+                />
+                {/* accent rule draws across the top */}
+                <span
+                  aria-hidden
+                  className={cn(
+                    "pointer-events-none absolute left-0 top-0 h-[3px] w-0 rounded-full",
+                    "transition-[width] duration-700 ease-out group-hover:w-full",
+                    feature.bar
+                  )}
+                />
+
+                <div className="relative p-10 lg:p-12">
+                  <div className={cn(
+                    "mb-10 flex h-16 w-16 items-center justify-center rounded-full border",
+                    "transition-all duration-500 group-hover:scale-110 group-hover:rotate-6",
+                    feature.ring, feature.ringHover
+                  )}>
+                    {feature.icon}
+                  </div>
+                  <h3 className={cn(
+                    "mb-4 font-display text-3xl font-bold uppercase tracking-wide text-marala-navy",
+                    "transition-colors duration-500", feature.label
+                  )}>
+                    {feature.title}
+                  </h3>
+                  <p className="text-lg font-light leading-relaxed text-marala-gray transition-colors duration-500 group-hover:text-marala-navy/75">
+                    {feature.desc}
+                  </p>
                 </div>
-                <h3 className={cn("text-3xl font-display font-bold uppercase mb-4 tracking-wide", feature.text || "text-marala-navy")}>{feature.title}</h3>
-                <p className={cn("text-lg leading-relaxed font-light", feature.descColor || "text-marala-gray")}>
-                  {feature.desc}
-                </p>
               </motion.div>
             ))}
           </div>
@@ -569,7 +611,7 @@ export default function App() {
             whileInView="visible"
             viewport={{ once: true }}
             variants={fadeInUp}
-            className="mb-16 text-center max-w-3xl mx-auto"
+            className="mx-auto mt-12 mb-16 max-w-3xl text-center lg:mt-20"
           >
             <h2 className="text-6xl md:text-8xl font-display font-bold uppercase leading-none tracking-tighter mb-6">
               Elite <span className="text-marala-teal text-transparent bg-clip-text bg-gradient-to-r from-marala-teal to-marala-navy">Equipment</span>
@@ -601,7 +643,7 @@ export default function App() {
               
               <div className="relative z-10 p-10 lg:p-20 w-full lg:w-1/2 h-full flex flex-col justify-center">
                 <div className="inline-flex items-center gap-3 border-l-2 border-marala-lime pl-4 text-marala-lime mb-8 w-max">
-                  <Target className="w-4 h-4" /> 
+                  <HockeyStickIcon className="w-4 h-4" /> 
                   <span className="font-display font-bold tracking-[0.2em] uppercase text-xs">Pro Series</span>
                 </div>
                 <h3 className="text-5xl lg:text-7xl font-display font-bold uppercase mb-6 tracking-tight leading-[0.9]">Field <br/>Hockey</h3>
@@ -635,7 +677,7 @@ export default function App() {
               
               <div className="relative z-10 p-10 lg:p-20 w-full lg:w-1/2 lg:ml-auto h-full flex flex-col justify-center">
                 <div className="inline-flex items-center gap-3 border-l-2 border-marala-teal pl-4 text-marala-teal mb-8 w-max">
-                  <Award className="w-4 h-4" /> 
+                  <PaddleIcon className="w-4 h-4" /> 
                   <span className="font-display font-bold tracking-[0.2em] uppercase text-xs">High-Performance</span>
                 </div>
                 <h3 className="text-5xl lg:text-7xl font-display font-bold uppercase mb-6 tracking-tight leading-[0.9]">Pickleball <br/>Paddles</h3>
@@ -720,7 +762,7 @@ export default function App() {
               variants={staggerContainer}
             >
               <motion.div variants={fadeInUp} className="inline-flex items-center gap-3 border-l-2 border-marala-orange pl-4 mb-10">
-                <Globe2 className="w-4 h-4 text-marala-orange" />
+                <GlobeMarkIcon className="w-4 h-4 text-marala-orange" />
                 <span className="text-marala-navy font-display font-bold text-xs tracking-[0.2em] uppercase">
                   Global Reach
                 </span>
@@ -791,7 +833,9 @@ export default function App() {
       {/* Footer */}
       <footer className="bg-marala-white text-marala-navy py-12 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 pb-12 border-b border-marala-gray/20">
+          <ContactInfo />
+
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 py-12 border-b border-marala-gray/20">
              
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 bg-marala-navy text-white rounded-full flex items-center justify-center shadow-lg">
@@ -806,7 +850,7 @@ export default function App() {
               <a href="#" className="hover:text-marala-teal transition-colors">Expertise</a>
               <a href="#" className="hover:text-marala-teal transition-colors">Equipment</a>
               <a href="#" className="hover:text-marala-teal transition-colors">Manufacturing</a>
-              <a href="#" className="hover:text-marala-teal transition-colors">Contact</a>
+              <a href="#contact" className="hover:text-marala-teal transition-colors">Contact</a>
             </div>
 
           </div>
@@ -820,6 +864,8 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+      <FloatingWhatsApp />
     </div>
   );
 }

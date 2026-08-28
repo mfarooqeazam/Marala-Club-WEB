@@ -697,9 +697,6 @@ export default function InteractiveRacketX() {
             Hockey
           </p>
           <div className="mt-3 h-px w-14 bg-marala-navy/20 lg:w-24" />
-          <p className="mt-3 max-w-[11rem] text-xs font-light leading-relaxed text-marala-gray">
-            90% carbon layup, low-bow power profile.
-          </p>
         </div>
 
         <div className="absolute right-6 top-1/2 -translate-y-1/2 text-right lg:right-14">
@@ -712,9 +709,6 @@ export default function InteractiveRacketX() {
             Paddles
           </p>
           <div className="ml-auto mt-3 h-px w-14 bg-marala-navy/20 lg:w-24" />
-          <p className="ml-auto mt-3 max-w-[11rem] text-xs font-light leading-relaxed text-marala-gray">
-            16mm honeycomb core, raw T700 face.
-          </p>
         </div>
       </motion.div>
     </motion.div>
