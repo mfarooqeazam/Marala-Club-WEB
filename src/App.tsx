@@ -452,7 +452,7 @@ export default function App() {
               whileHover={{ y: -5, scale: 1.025 }}
               whileTap={{ scale: 0.98 }}
               type="button"
-              className="group mb-6 sm:mb-10 inline-flex max-w-3xl items-start px-2 py-2 text-left transition-transform duration-500 hover:-translate-y-1"
+              className="group mb-6 sm:mb-10 inline-flex max-w-3xl items-center px-2 py-2 text-center transition-transform duration-500 hover:-translate-y-1 sm:items-start sm:text-left"
               aria-label="Marala Club motto"
             >
               <span className="font-display text-lg font-semibold italic leading-tight tracking-[0.04em] text-white sm:text-2xl">
@@ -493,10 +493,10 @@ export default function App() {
             variants={fadeInUp}
             className="mb-14 sm:mb-20 lg:mb-24 flex flex-col md:flex-row gap-8 md:gap-10 justify-between items-start md:items-end"
           >
-            <h2 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-marala-navy uppercase leading-[0.9] tracking-tighter md:w-1/2">
+            <h2 className="w-full text-left text-4xl sm:text-5xl md:text-7xl font-display font-bold text-marala-navy uppercase leading-[0.9] tracking-tighter md:w-1/2">
               The Marala <br/><span className="text-marala-teal">Standard.</span>
             </h2>
-            <p className="text-lg sm:text-xl text-marala-gray font-light leading-relaxed md:w-1/3">
+            <p className="w-full text-left text-lg sm:text-xl text-marala-gray font-light leading-relaxed md:w-1/3">
               Decades of craftsmanship merged with cutting-edge manufacturing technology. We set the benchmark for global sports equipment export.
             </p>
           </motion.div>
